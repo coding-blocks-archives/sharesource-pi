@@ -1,10 +1,4 @@
-var Apa102spi = require('apa102-spi')
+const hooloovoo = require('hooloovoo');
+hooloovoo.setup(6);
 
-// Apa102spi(number of leds, clock divider)
-var LedDriver = new Apa102spi(6, 100)
-
-// setLedColor(n, brightness 0-31, red 0-255, green 0-255, blue 0-255)
-LedDriver.setLedColor(0, 20, 255, 0, 0)
-
-// send data to led string
-LedDriver.sendLeds()
+hooloovoo.fill_hex("FF0000");

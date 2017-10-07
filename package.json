@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apa102-spi": "0.0.3"
+    "hooloovoo": "^1.0.7"
   }
 }
