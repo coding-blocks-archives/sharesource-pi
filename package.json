@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hooloovoo": "^1.0.7"
+    "hooloovoo": "^1.0.7",
+    "johnny-five": "^0.11.6",
+    "raspi-io": "^8.1.0"
   }
 }
