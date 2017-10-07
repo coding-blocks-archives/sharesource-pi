@@ -12,7 +12,8 @@ board.on('ready', () => {
   });
 
   setInterval(() => {
-    digits.print(toggle ? "CLOSE" : "OPEN")
+    digits.draw(0, (toggle ? "C" : "O"))
+    digits.draw(2, (toggle? "O" : "E"))
     toggle = !toggle
   }, 2000)
 
