@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "rainbow": "node apps/rainbow"
+    "rainbow": "node apps/rainbow",
+    "ledmsg": "node apps/ledmsg"
   },
   "author": "",
   "license": "ISC",
