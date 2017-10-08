@@ -13,7 +13,9 @@ board.on('ready', () => {
 
   setInterval(() => {
     digits.draw(0, (toggle ? "C" : "O"))
+    digits.draw(1, (toggle ? "L" : "P"))
     digits.draw(2, (toggle? "O" : "E"))
+    digits.draw(2, (toggle? "S" : "N"))
     toggle = !toggle
   }, 2000)
 

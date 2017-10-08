@@ -5,13 +5,18 @@
   "main": "index.js",
   "scripts": {
     "rainbow": "node apps/rainbow",
-    "ledmsg": "node apps/ledmsg"
+    "ledmsg": "node apps/ledmsg",
+    "beaconscan": "node apps/beaconscan"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "hooloovoo": "^1.0.7",
-    "johnny-five": "^0.11.6",
+    "noble": "^1.8.1",
+    "node-beacon-scanner": "^0.0.2",
+    "johnny-five": "^0.11.6"
+  },
+  "optionalDependencies": {
     "raspi-io": "^8.1.0"
   }
 }
