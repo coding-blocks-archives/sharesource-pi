@@ -6,7 +6,7 @@ const board = new five.Board({
   io: new Raspi()
 });
 
-let near = false;
+let far = false;
 
 board.on('ready', () => {
 
@@ -16,13 +16,14 @@ board.on('ready', () => {
 
   // Set an Event handler for becons
   scanner.onadvertisement = (ad) => {
+    console.log(ad.rssi);
     if (ad.eddystoneUrl) {
-      near = (ad.rssi > -50);
+      far = (ad.rssi > -50);
 
-      digits.draw(0, (near ? "C" : "O"))
-      digits.draw(1, (near ? "L" : "P"))
-      digits.draw(2, (near? "O" : "E"))
-      digits.draw(3, (near? "S" : "N"))
+      digits.draw(0, (far ? "C" : "O"))
+      digits.draw(1, (far ? "L" : "P"))
+      digits.draw(2, (far? "O" : "E"))
+      digits.draw(3, (far? "S" : "N"))
     }
   };
 
