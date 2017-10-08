@@ -18,7 +18,7 @@ board.on('ready', () => {
   scanner.onadvertisement = (ad) => {
     console.log(ad.rssi);
     if (ad.eddystoneUrl) {
-      far = (ad.rssi > -50);
+      far = (ad.rssi < -60);
 
       digits.draw(0, (far ? "C" : "O"))
       digits.draw(1, (far ? "L" : "P"))
