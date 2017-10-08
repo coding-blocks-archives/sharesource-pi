@@ -51,6 +51,7 @@ board.on('ready', () => {
     digits.draw(1, (far ? "L" : "P"))
     digits.draw(2, (far? "O" : "E"))
     digits.draw(3, (far? "S" : "N"))
+    console.log("user:" + user);
     hooloovoo.fill_hex(userColors[user])
   }, 1000)
 
