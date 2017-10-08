@@ -7,6 +7,7 @@ const board = new five.Board({
 });
 
 let far = false;
+let lastChecked = new Date().getTime()
 
 board.on('ready', () => {
 
@@ -22,11 +23,7 @@ board.on('ready', () => {
     } else {
       far = true
     }
-      digits.draw(0, (far ? "C" : "O"))
-      digits.draw(1, (far ? "L" : "P"))
-      digits.draw(2, (far? "O" : "E"))
-      digits.draw(3, (far? "S" : "N"))
-
+    lastChecked = new Date().getTime()
   };
 
   // Start scanning
@@ -35,6 +32,18 @@ board.on('ready', () => {
   }).catch((error) => {
     console.error(error);
   });
+
+  setInterval(() => {
+    if (!far) {
+      if (new Date().getTime() - lastChecked > 1000) {
+        far = true;
+      }
+    }
+    digits.draw(0, (far ? "C" : "O"))
+    digits.draw(1, (far ? "L" : "P"))
+    digits.draw(2, (far? "O" : "E"))
+    digits.draw(3, (far? "S" : "N"))
+  }, 1000)
 
 });
 
