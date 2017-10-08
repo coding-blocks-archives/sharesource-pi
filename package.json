@@ -6,7 +6,8 @@
   "scripts": {
     "rainbow": "node apps/rainbow",
     "ledmsg": "node apps/ledmsg",
-    "beaconscan": "node apps/beaconscan"
+    "beaconscan": "node apps/beaconscan",
+    "beaconled": "node apps/beaconled"
   },
   "author": "",
   "license": "ISC",
