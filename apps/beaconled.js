@@ -19,12 +19,14 @@ board.on('ready', () => {
     console.log(ad.rssi);
     if (ad.eddystoneUrl) {
       far = (ad.rssi < -60);
-
+    } else {
+      far = true
+    }
       digits.draw(0, (far ? "C" : "O"))
       digits.draw(1, (far ? "L" : "P"))
       digits.draw(2, (far? "O" : "E"))
       digits.draw(3, (far? "S" : "N"))
-    }
+
   };
 
   // Start scanning
