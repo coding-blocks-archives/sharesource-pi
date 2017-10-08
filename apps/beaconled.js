@@ -2,11 +2,17 @@ const BeaconScanner = require('node-beacon-scanner');
 const scanner = new BeaconScanner();
 const Raspi = require('raspi-io');
 const five = require('johnny-five');
+const hooloovoo = require('hooloovoo');
+hooloovoo.setup(7);
 const board = new five.Board({
   io: new Raspi()
 });
+let userColors = [
+  "000000", "FF0000", "00FF00", "0000FF"
+]
 
 let far = false;
+let user = 0;
 let lastChecked = new Date().getTime()
 
 board.on('ready', () => {
@@ -19,7 +25,9 @@ board.on('ready', () => {
   scanner.onadvertisement = (ad) => {
     console.log(ad.rssi);
     if (ad.eddystoneUrl) {
-      far = (ad.rssi < -60);
+      far = (ad.rssi < -40);
+      user = parseInt(ad.eddystoneUrl.url.split('/').pop())
+      if (isNaN(user)) user = 0;
     } else {
       far = true
     }
@@ -43,6 +51,7 @@ board.on('ready', () => {
     digits.draw(1, (far ? "L" : "P"))
     digits.draw(2, (far? "O" : "E"))
     digits.draw(3, (far? "S" : "N"))
+    hooloovoo.fill_hex(userColors[user])
   }, 1000)
 
 });
