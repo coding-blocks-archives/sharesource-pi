@@ -15,7 +15,7 @@ board.on('ready', () => {
     digits.draw(0, (toggle ? "C" : "O"))
     digits.draw(1, (toggle ? "L" : "P"))
     digits.draw(2, (toggle? "O" : "E"))
-    digits.draw(2, (toggle? "S" : "N"))
+    digits.draw(3, (toggle? "S" : "N"))
     toggle = !toggle
   }, 2000)
 
